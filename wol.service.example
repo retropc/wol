@@ -1,0 +1,17 @@
+[Unit]
+Description=wakeonlan service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/path/to/wol
+UMask=0007
+ExecStart=/path/to/wol/venv/bin/gunicorn -w 1 -b 127.0.0.1:8081 wol:wsgiapp
+Restart=always
+User=wol
+Group=wol
+RestartSec=30s
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

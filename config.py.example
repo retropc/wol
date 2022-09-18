@@ -1,0 +1,11 @@
+import os
+
+SECRET = os.urandom(64)
+EXPIRY = 60
+
+WAKEONLAN_BINARY = ["/usr/bin/wakeonlan"]
+
+MACHINES = {
+  "11:22:33:44:55:66": "mybox",
+  "22:33:44:55:66:77": "otherbox",
+}
